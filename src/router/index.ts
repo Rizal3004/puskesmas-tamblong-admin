@@ -12,6 +12,12 @@ if (import.meta.hot) {
 }
 
 router.beforeEach((to) => {
+  if (to.path === '/') {
+    return '/auth/login'
+  }
+  if (to.path.startsWith('/auth') && localStorage.getItem('token')) {
+    return '/admin/booking'
+  }
   if (to.path.startsWith('/admin') && !localStorage.getItem('token')) {
     return '/auth/login'
   }
