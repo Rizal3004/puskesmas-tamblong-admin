@@ -1,3 +1,4 @@
+<!-- eslint-disable no-alert -->
 <script lang="ts" setup>
 import ShowKeluhan from './ShowKeluhan.vue'
 import BookingDoneConfirmationDialog from '@/components/Booking/DoneConfirmationDialog.vue'
@@ -5,6 +6,7 @@ import BookingDeleteDialog from '@/components/Booking/DeleteDialog.vue'
 import type { BookingActivity } from '@/types/BookingActivity'
 import { useGetPatientById } from '@/services/patientService'
 import { useGetDoctorById } from '@/services/doctorService'
+import { useCancelBooking } from '@/services/bookingService'
 
 const props = defineProps<{
   ba: BookingActivity
@@ -12,6 +14,18 @@ const props = defineProps<{
 
 const { data: patient } = useGetPatientById(props.ba.pasien_id)
 const { data: doctor } = useGetDoctorById(props.ba.dokter_id)
+const { mutate: cancelBooking } = useCancelBooking()
+
+function handleCancelBooking(id: number) {
+  cancelBooking(id, {
+    onSuccess: () => {
+      alert('Berhasil membatalkan booking')
+    },
+    onError: () => {
+      alert('Gagal membatalkan booking')
+    },
+  })
+}
 </script>
 
 <template>
@@ -44,7 +58,7 @@ const { data: doctor } = useGetDoctorById(props.ba.dokter_id)
     <td class="text-start">
       <div class="flex items-center gap-2 pl-10">
         <BookingDoneConfirmationDialog :bookingActivityId="ba.id" />
-        <BookingDeleteDialog :bookingActivityId="ba.id" />
+        <BookingDeleteDialog :bookingActivityId="ba.id" @delete="id => handleCancelBooking(id)" />
       </div>
     </td>
   </tr>

@@ -42,10 +42,12 @@ export function useCreateDoctor() {
       formData.append('name', name!)
       formData.append('phone', phone!)
       formData.append('poli_id', String(poli_id))
-  
-      const imageFile2 = await jpegToPng(imageFile as File)
-  
-      formData.append('imageFile', imageFile2)
+
+      if (imageFile) {
+        const imageFile2 = await jpegToPng(imageFile as File)
+    
+        formData.append('imageFile', imageFile2)
+      }
 
       return await apiFetch('/doctors', {
         method: 'POST',

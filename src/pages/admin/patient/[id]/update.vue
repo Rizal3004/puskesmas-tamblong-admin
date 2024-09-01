@@ -1,3 +1,4 @@
+<!-- eslint-disable no-alert -->
 <script lang="ts" setup>
 import { onMounted, reactive, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -19,8 +20,15 @@ function handleSubmit() {
     ...patient.value,
     email: patientFormData.email,
     password: patientFormData.password,
+  }, {
+    onSuccess: () => {
+      alert('Berhasil mengedit data pasien')
+      router.go(-1)
+    },
+    onError: () => {
+      alert('Gagal mengedit data pasien')
+    },
   })
-  router.go(-1)
 }
 onMounted(() => {
   watch(() => isSuccess.value, () => {

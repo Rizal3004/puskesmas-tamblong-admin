@@ -1,3 +1,4 @@
+<!-- eslint-disable no-alert -->
 <script lang="ts" setup>
 import { onMounted, reactive, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -66,9 +67,15 @@ function handleSubmit() {
     jam_kerja_end: dokterFormData.jam_kerja_end,
     email: dokterFormData.email,
     phone: dokterFormData.phone,
+  }, {
+    onSuccess: () => {
+      alert('Berhasil mengubah dokter')
+      router.go(-1)
+    },
+    onError: (e) => {
+      alert(e.message)
+    },
   })
-
-  router.go(-1)
 }
 </script>
 

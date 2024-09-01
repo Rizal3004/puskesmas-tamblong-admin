@@ -1,3 +1,4 @@
+<!-- eslint-disable no-alert -->
 <script setup lang="ts">
 import {
   DialogClose,
@@ -25,7 +26,18 @@ const aturanMinum = ref('')
 
 function handleSubmit() {
   const resep2 = `${resep.value}::${aturanMinum.value}`
-  confirmationComplete({ id: bookingActivityId, penyakit: penyakit.value, resep: resep2 })
+  confirmationComplete({ 
+    id: bookingActivityId, 
+    penyakit: penyakit.value, 
+    resep: resep2
+  }, {
+    onSuccess: () => {
+      alert('Berhasil menyelesaikan booking')
+    },
+    onError: () => {
+      alert('Gagal menyelesaikan booking')
+    },
+  })
 }
 </script>
 

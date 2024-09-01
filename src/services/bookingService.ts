@@ -45,3 +45,19 @@ export function useConfirmationCompleteBooking() {
 
   })
 }
+
+
+export function useCancelBooking() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: async (id: number) => {
+      return await apiFetch(`/booking-activities/${id}/cancel`, {
+        method: 'PATCH',
+      })
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['bookings', { status: 'booked' }] })
+      queryClient.invalidateQueries({ queryKey: ['bookings', { status: 'done' }] })
+    },
+  })
+}

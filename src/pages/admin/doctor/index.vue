@@ -40,7 +40,7 @@ const searchText = ref('')
             <th class="text-start">Jam selesai kerja</th>
             <th class="text-start">No Telp</th>
             <th class="text-start">Email</th>
-            <th class="text-start">Foto</th>
+            <!-- <th class="text-start">Foto</th> -->
             <th class="text-start" />
           </tr>
         </thead>

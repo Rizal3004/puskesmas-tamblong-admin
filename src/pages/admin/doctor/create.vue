@@ -1,3 +1,4 @@
+<!-- eslint-disable no-alert -->
 <script lang="ts" setup>
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
@@ -34,8 +35,15 @@ function photoChange(e: Event) {
 }
 
 function handleSubmit() {
-  createDoctor(dokterFormData)
-  router.go(-1)
+  createDoctor(dokterFormData, {
+    onSuccess: () => {
+      alert('Berhasil menambahkan dokter')
+      router.go(-1)
+    },
+    onError: (e) => {
+      alert(e.message)
+    },
+  })
 }
 </script>
 

@@ -13,34 +13,40 @@ const props = defineProps<{
 
 const { data: poli } = useGetPoliById(props.doctor.poli_id)
 
-const { mutate: handleDeleteDoctorById, isError: isErrorDeleteDoctor } = useDeleteDoctor()
+const { mutate: handleDeleteDoctorById } = useDeleteDoctor()
 
-watch(() => isErrorDeleteDoctor.value, () => {
-  if (isErrorDeleteDoctor.value === true) {
-    // eslint-disable-next-line no-alert
-    alert('Gagal menghapus dokter, dokter masih memiliki jadwal praktek')
-  }
-})
+function handleDelete(id: number) {
+  handleDeleteDoctorById(id, {
+    onSuccess: () => {
+      // eslint-disable-next-line no-alert
+      alert('Berhasil menghapus dokter')
+    },
+    onError: () => {
+      // eslint-disable-next-line no-alert
+      alert('Gagal menghapus dokter, dokter masih memiliki jadwal praktek')
+    },
+  })
+}
 </script>
 
 <template>
   <tr>
     <td class="text-start">{{ doctor.id }}</td>
     <td class="text-start">{{ doctor.name }}</td>
-    <td class="text-start" v-if="poli">{{ poli.name }}</td>
+    <td v-if="poli" class="text-start">{{ poli.name }}</td>
     <td class="text-start">{{ doctor.jam_kerja_start }}</td>
     <td class="text-start">{{ doctor.jam_kerja_end }}</td>
     <td class="text-start">{{ doctor.phone }}</td>
     <td class="text-start">{{ doctor.email }}</td>
-    <td class="text-start">
+    <!-- <td class="text-start">
       <img :src="`${baseURL}doctors/image/${doctor.id}`" alt="Foto dokter" class="aspect-video w-16 object-cover">
-    </td>
+    </td> -->
     <td class="text-start">
       <div class="flex items-center gap-2 pl-10">
         <RouterLink :to="`/admin/doctor/${doctor.id}/update`">
           <Icon icon="material-symbols:edit" class="text-amber-500" />
         </RouterLink>
-        <DeleteDialog :dokterId="doctor.id" @delete="(id) => handleDeleteDoctorById(id)" />
+        <DeleteDialog :dokterId="doctor.id" @delete="(id) => handleDelete(id)" />
       </div>
     </td>
   </tr>
