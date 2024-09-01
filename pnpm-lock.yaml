@@ -51,6 +51,9 @@ importers:
       '@vue/tsconfig':
         specifier: ^0.5.1
         version: 0.5.1
+      '@vue/typescript-plugin':
+        specifier: 2.1.2
+        version: 2.1.2(typescript@5.4.5)
       eslint:
         specifier: ^9.9.1
         version: 9.9.1(jiti@1.21.6)
@@ -76,7 +79,7 @@ importers:
         specifier: ^7.3.1
         version: 7.3.9(rollup@4.21.2)(vite@5.4.2(@types/node@20.16.2))(vue@3.4.38(typescript@5.4.5))
       vue-tsc:
-        specifier: ^2.0.21
+        specifier: ^2.1.2
         version: 2.1.2(typescript@5.4.5)
 
 packages:
@@ -893,6 +896,9 @@ packages:
 
   '@vue/tsconfig@0.5.1':
     resolution: {integrity: sha512-VcZK7MvpjuTPx2w6blwnwZAu5/LgBUtejFOi3pPGQFXQN5Ela03FUtd2Qtg4yWGGissVL0dr6Ro1LfOFh+PCuQ==}
+
+  '@vue/typescript-plugin@2.1.2':
+    resolution: {integrity: sha512-F96IB5biZJQ7QckSts62VtKy6YY3FnZTlhkph0p8MyJnngcmQpOI8HwgigIiQcOI0uC6L2TqBdrFHOpG2SMn3Q==}
 
   '@vueuse/core@10.11.1':
     resolution: {integrity: sha512-guoy26JQktXPcz+0n3GukWIy/JDNKti9v6VEMu6kV2sYBsWuGiTU8OWdg+ADfUbHg3/3DlqySDe7JmdHrktiww==}
@@ -3387,6 +3393,14 @@ snapshots:
   '@vue/shared@3.4.38': {}
 
   '@vue/tsconfig@0.5.1': {}
+
+  '@vue/typescript-plugin@2.1.2(typescript@5.4.5)':
+    dependencies:
+      '@volar/typescript': 2.4.1
+      '@vue/language-core': 2.1.2(typescript@5.4.5)
+      '@vue/shared': 3.4.38
+    transitivePeerDependencies:
+      - typescript
 
   '@vueuse/core@10.11.1(vue@3.4.38(typescript@5.4.5))':
     dependencies:
