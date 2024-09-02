@@ -15,6 +15,8 @@ const patientFormData = reactive({
 })
 
 function handleSubmit() {
+  const confirmUpdate = confirm('Apakah anda yakin ingin mengedit data pasien ini?')
+  if (!confirmUpdate) return
   if (!patient.value) return
   updatePatientById({
     ...patient.value,

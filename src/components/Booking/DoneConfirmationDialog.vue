@@ -25,6 +25,8 @@ const resep = ref('')
 const aturanMinum = ref('')
 
 function handleSubmit() {
+  const confirmDelete = confirm('Apakah anda yakin ingin menyelesaikan booking ini?')
+  if (!confirmDelete) return
   const resep2 = `${resep.value}::${aturanMinum.value}`
   confirmationComplete({ 
     id: bookingActivityId, 

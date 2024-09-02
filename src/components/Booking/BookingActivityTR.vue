@@ -1,5 +1,6 @@
 <!-- eslint-disable no-alert -->
 <script lang="ts" setup>
+import { Icon } from '@iconify/vue'
 import ShowKeluhan from './ShowKeluhan.vue'
 import BookingDoneConfirmationDialog from '@/components/Booking/DoneConfirmationDialog.vue'
 import BookingDeleteDialog from '@/components/Booking/DeleteDialog.vue'
@@ -17,6 +18,8 @@ const { data: doctor } = useGetDoctorById(props.ba.dokter_id)
 const { mutate: cancelBooking } = useCancelBooking()
 
 function handleCancelBooking(id: number) {
+  const confirmDelete = confirm('Apakah anda yakin ingin membatalkan booking ini?')
+  if (!confirmDelete) return
   cancelBooking(id, {
     onSuccess: () => {
       alert('Berhasil membatalkan booking')

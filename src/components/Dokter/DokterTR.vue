@@ -16,6 +16,8 @@ const { data: poli } = useGetPoliById(props.doctor.poli_id)
 const { mutate: handleDeleteDoctorById } = useDeleteDoctor()
 
 function handleDelete(id: number) {
+  const confirmDelete = confirm('Apakah anda yakin ingin menghapus dokter ini?')
+  if (!confirmDelete) return
   handleDeleteDoctorById(id, {
     onSuccess: () => {
       // eslint-disable-next-line no-alert

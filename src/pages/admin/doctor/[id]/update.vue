@@ -59,6 +59,8 @@ onMounted(() => {
 })
 
 function handleSubmit() {
+  const confirmSubmit = confirm('Apakah anda yakin ingin mengubah dokter ini?')
+  if (!confirmSubmit) return
   updateDoctorById({
     id: Number.parseInt(doctorId),
     name: dokterFormData.name,
