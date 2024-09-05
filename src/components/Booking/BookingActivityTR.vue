@@ -1,13 +1,14 @@
 <!-- eslint-disable no-alert -->
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue'
+import { onMounted, ref } from 'vue'
 import ShowKeluhan from './ShowKeluhan.vue'
 import BookingDoneConfirmationDialog from '@/components/Booking/DoneConfirmationDialog.vue'
 import BookingDeleteDialog from '@/components/Booking/DeleteDialog.vue'
 import type { BookingActivity } from '@/types/BookingActivity'
 import { useGetPatientById } from '@/services/patientService'
 import { useGetDoctorById } from '@/services/doctorService'
-import { useCancelBooking } from '@/services/bookingService'
+import { useCancelBooking, useGetQueueNumberByBookingId } from '@/services/bookingService'
 
 const props = defineProps<{
   ba: BookingActivity
@@ -15,6 +16,7 @@ const props = defineProps<{
 
 const { data: patient } = useGetPatientById(props.ba.pasien_id)
 const { data: doctor } = useGetDoctorById(props.ba.dokter_id)
+const { data: queue } = useGetQueueNumberByBookingId(props.ba.id)
 const { mutate: cancelBooking } = useCancelBooking()
 
 function handleCancelBooking(id: number) {
@@ -29,6 +31,7 @@ function handleCancelBooking(id: number) {
     },
   })
 }
+
 </script>
 
 <template>
@@ -51,7 +54,7 @@ function handleCancelBooking(id: number) {
     <td class="text-start">{{ doctor?.name }}</td>
     <td class="text-start">{{ ba.date }}</td>
     <td class="text-start">{{ ba?.starts_at }} - {{ ba?.ends_at }}</td>
-    <!-- <td class="text-start">{{ getQueueNumber(ba.id) }}</td> -->
+    <td class="text-start">{{ queue }}</td>
     <td class="text-start">
       <div class="flex items-center gap-2">
         {{ ba.keluhan }}

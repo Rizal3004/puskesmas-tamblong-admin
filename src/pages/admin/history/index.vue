@@ -11,7 +11,6 @@ const { data: baHistories } = useGetDoneBookings()
       <table class="w-full border-separate border-spacing-x-6">
         <thead class="border-b">
           <tr class="h-12">
-            <th class="text-start">ID</th>
             <th class="text-start">Nama pasien</th>
             <th class="text-start">Nama dokter</th>
             <th class="text-start">Poli</th>

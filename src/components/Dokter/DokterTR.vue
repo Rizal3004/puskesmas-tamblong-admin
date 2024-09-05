@@ -16,6 +16,7 @@ const { data: poli } = useGetPoliById(props.doctor.poli_id)
 const { mutate: handleDeleteDoctorById } = useDeleteDoctor()
 
 function handleDelete(id: number) {
+  // eslint-disable-next-line no-alert
   const confirmDelete = confirm('Apakah anda yakin ingin menghapus dokter ini?')
   if (!confirmDelete) return
   handleDeleteDoctorById(id, {
@@ -40,9 +41,9 @@ function handleDelete(id: number) {
     <td class="text-start">{{ doctor.jam_kerja_end }}</td>
     <td class="text-start">{{ doctor.phone }}</td>
     <td class="text-start">{{ doctor.email }}</td>
-    <!-- <td class="text-start">
-      <img :src="`${baseURL}doctors/image/${doctor.id}`" alt="Foto dokter" class="aspect-video w-16 object-cover">
-    </td> -->
+    <td class="text-start">
+      <img :src="`${baseURL}/doctors/image/${doctor.id}`" alt="Foto dokter" class="aspect-video w-16 object-cover">
+    </td>
     <td class="text-start">
       <div class="flex items-center gap-2 pl-10">
         <RouterLink :to="`/admin/doctor/${doctor.id}/update`">

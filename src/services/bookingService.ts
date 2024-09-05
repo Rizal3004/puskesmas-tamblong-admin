@@ -61,3 +61,13 @@ export function useCancelBooking() {
     },
   })
 }
+
+export function useGetQueueNumberByBookingId(bookingId: number) {
+  return useQuery<number>({
+    queryKey: ['queue-number', bookingId],
+    queryFn: async () => {
+      const { queue } = await apiFetch(`/booking-activities/${bookingId}/queue`)
+      return queue
+    },
+  })
+}
