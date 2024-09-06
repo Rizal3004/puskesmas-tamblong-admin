@@ -49,7 +49,9 @@ async function handlePrint2() {
     </div>
     <div ref="elementToPrintRef" class="rounded-md border px-2 pb-3">
       <div v-if="showHeader" class="mb-2 border-b pb-2">
-        <h1 class="text-center text-2xl font-bold">Riwayat Antrian</h1>
+        <h1 class="text-center text-2xl font-bold">
+          Laporan Pengobatan Pasien
+        </h1>
       </div>
       <table class="w-full border-separate border-spacing-x-6">
         <thead class="border-b">

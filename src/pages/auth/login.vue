@@ -5,6 +5,7 @@ import { useLogin } from '@/services/authService'
 
 const router = useRouter()
 
+// inputan user
 const data = reactive({
   username: '',
   password: '',
@@ -19,7 +20,6 @@ function handleSubmit() {
   }, {
     onSuccess: ({ token }) => {
       if (!token) return
-      console.log(token)
       localStorage.setItem('token', token)
       router.push('/admin/booking')
     },

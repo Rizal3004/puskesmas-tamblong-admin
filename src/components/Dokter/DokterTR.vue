@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { watch } from 'vue'
 import { Icon } from '@iconify/vue'
 import DeleteDialog from './DeleteDialog.vue'
 import { baseURL } from '@/lib/ofetch'
