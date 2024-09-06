@@ -17,7 +17,7 @@ const { data: doctor } = useGetDoctorById(props.ba.dokter_id)
 
 <template>
   <tr class="">
-    <td class="text-start">{{ patient?.name }}</td>
+    <td class="text-start">{{ patient?.name }} {{ ba.id }}</td>
     <td class="text-start">{{ ba.patient_type === 'umum' ? 'Umum' : `BPJS (${ba.bpjs_number})` }}</td>
     <td class="text-start">{{ patient?.phone }}</td>
     <td class="text-start">{{ doctor?.name }}</td>
@@ -33,5 +33,10 @@ const { data: doctor } = useGetDoctorById(props.ba.dokter_id)
     <td class="text-start">{{ ba.penyakit }}</td>
     <td class="text-start">{{ ba.resep?.split('::')[0] }}</td>
     <td class="text-start">{{ ba.resep?.split('::')[1] }}</td>
+    <td>
+      <RouterLink class="rounded-md bg-amber-300 px-4 py-1" :to="`/admin/history/${ba.id}`">
+        Lihat
+      </RouterLink>
+    </td>
   </tr>
 </template>

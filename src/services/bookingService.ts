@@ -11,6 +11,15 @@ export function useGetAllBookings() {
   })
 }
 
+export function useGetBookingById(id: number) {
+  return useQuery<{ bookingActivity:BookingActivity}>({
+    queryKey: ['booking', id],
+    queryFn: async () => {
+      return await apiFetch(`/booking-activities/${id}`)
+    },
+  })
+}
+
 export function useGetBookedBookings() {
   return useQuery<BookingActivity[]>({
     queryKey: ['bookings', { status: 'booked' }],
