@@ -55,47 +55,51 @@ function handlePrint2() {
     <h1 class="text-center text-2xl font-semibold">LAPORAN DATA CATATAN PENGOBATAN PASIEN</h1>
     <div class="my-2 border-y py-2">
       <table class="">
-        <tr>
-          <td>Nama</td>
-          <td>: {{ patient?.name }}</td>
-        </tr>
-        <tr>
-          <td>NIK</td>
-          <td>: {{ patient?.nik }}</td>
-        </tr>
-        <tr>
-          <td>Tanggal Lahir</td>
-          <td>: {{ patient?.birthdate ?? '-' }}</td>
-        </tr>
-        <tr>
-          <td>Email</td>
-          <td>: {{ patient?.email }}</td>
-        </tr>
-        <tr>
-          <td>Nomor Telepon</td>
-          <td>: {{ patient?.phone ?? '-' }}</td>
-        </tr>
-        <tr>
-          <td>Alamat</td>
-          <td>: {{ patient?.address ?? '-' }}</td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>Nama</td>
+            <td>: {{ patient?.name }}</td>
+          </tr>
+          <tr>
+            <td>NIK</td>
+            <td>: {{ patient?.nik }}</td>
+          </tr>
+          <tr>
+            <td>Tanggal Lahir</td>
+            <td>: {{ patient?.birthdate ?? '-' }}</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>: {{ patient?.email }}</td>
+          </tr>
+          <tr>
+            <td>Nomor Telepon</td>
+            <td>: {{ patient?.phone ?? '-' }}</td>
+          </tr>
+          <tr>
+            <td>Alamat</td>
+            <td>: {{ patient?.address ?? '-' }}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
     <table class="w-full border-solid [&>tr>*]:border [&>tr>*]:px-3 [&>tr>*]:text-start">
-      <tr>
-        <th>Tanggal</th>
-        <th>Dokter</th>
-        <th>Poli</th>
-        <th>Penyakit</th>
-        <th>Resep</th>
-      </tr>
-      <tr>
-        <td>{{ ba?.date }}</td>
-        <td>{{ doctor?.name }}</td>
-        <td>{{ poli?.name }}</td>
-        <td>{{ ba?.penyakit }}</td>
-        <td>{{ ba?.resep?.split('::').join(' - ') }}</td>
-      </tr>
+      <tbody>
+        <tr>
+          <th>Tanggal</th>
+          <th>Dokter</th>
+          <th>Poli</th>
+          <th>Penyakit</th>
+          <th>Resep</th>
+        </tr>
+        <tr>
+          <td>{{ ba?.date }}</td>
+          <td>{{ doctor?.name }}</td>
+          <td>{{ poli?.name }}</td>
+          <td>{{ ba?.penyakit }}</td>
+          <td>{{ ba?.resep?.split('::').join(' - ') }}</td>
+        </tr>
+      </tbody>
     </table>
     <div class="mt-6 flex justify-end">
       <div class="text-sm">
