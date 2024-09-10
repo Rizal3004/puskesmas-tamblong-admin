@@ -55,7 +55,6 @@ export function useConfirmationCompleteBooking() {
   })
 }
 
-
 export function useCancelBooking() {
   const queryClient = useQueryClient()
   return useMutation({

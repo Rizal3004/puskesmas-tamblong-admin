@@ -4,7 +4,7 @@ import { ref } from 'vue'
 import BookingDoneConfirmationDialog from '@/components/Booking/DoneConfirmationDialog.vue'
 import BookingDeleteDialog from '@/components/Booking/DeleteDialog.vue'
 import ShowKeluhan from '@/components/Booking/ShowKeluhan.vue'
-import { useGetAllBookings, useGetBookedBookings } from '@/services/bookingService'
+import { useGetBookedBookings } from '@/services/bookingService'
 import BookingActivityTR from '@/components/Booking/BookingActivityTR.vue'
 
 const { data: bookings } = useGetBookedBookings()
