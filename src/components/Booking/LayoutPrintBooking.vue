@@ -86,18 +86,18 @@ function handlePrint2() {
     <table class="w-full border-solid [&>tr>*]:border [&>tr>*]:px-3 [&>tr>*]:text-start">
       <tbody>
         <tr>
-          <th>Tanggal</th>
-          <th>Dokter</th>
-          <th>Poli</th>
-          <th>Penyakit</th>
-          <th>Resep</th>
+          <th class="border">Tanggal</th>
+          <th class="border">Dokter</th>
+          <th class="border">Poli</th>
+          <th class="border">Penyakit</th>
+          <th class="border">Resep</th>
         </tr>
         <tr>
-          <td>{{ ba?.date }}</td>
-          <td>{{ doctor?.name }}</td>
-          <td>{{ poli?.name }}</td>
-          <td>{{ ba?.penyakit }}</td>
-          <td>{{ ba?.resep?.split('::').join(' - ') }}</td>
+          <td class="text-ditengah border">{{ ba?.date }}</td>
+          <td class="text-ditengah border">{{ doctor?.name }}</td>
+          <td class="text-ditengah border">{{ poli?.name }}</td>
+          <td class="text-ditengah border">{{ ba?.penyakit }}</td>
+          <td class="text-ditengah border">{{ ba?.resep?.split('::').join(' - ') }}</td>
         </tr>
       </tbody>
     </table>
@@ -113,3 +113,9 @@ function handlePrint2() {
     <button class="rounded-md bg-sky-200 px-4 py-0.5" @click="handlePrint2">Print</button>
   </div>
 </template>
+
+<style>
+.text-ditengah {
+  text-align: center;
+}
+</style>
