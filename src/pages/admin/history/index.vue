@@ -70,10 +70,10 @@ async function handlePrint2() {
             <tr class="h-12">
               <th class="text-start">Nama pasien</th>
               <th class="text-start">Nama dokter</th>
-              <th class="text-start">Poli</th>
+              <th class="text-start">Jenis Pasien</th>
+              <th class="text-start">No Hp Pasien</th>
               <th class="text-start">Tanggal</th>
-              <th class="text-start">Jam mulai</th>
-              <th class="text-start">Jam selesai</th>
+              <th class="text-start">Jam</th>
               <th class="text-start">Keluhan</th>
               <th class="text-start">Penyakit</th>
               <th class="text-start">Resep</th>
@@ -84,7 +84,12 @@ async function handlePrint2() {
             <tr class="h-1">
               <td colSpan="9" />
             </tr>
-            <BookingActivityHistoryTR v-for="ba of baHistories2" :key="ba.id" :ba />
+            <BookingActivityHistoryTR
+              v-for="ba of baHistories2"
+              :key="ba.id"
+              :showElementToPrint
+              :ba
+            />
           </tbody>
         </table>
       </div>
