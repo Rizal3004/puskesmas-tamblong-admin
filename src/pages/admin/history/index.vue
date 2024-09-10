@@ -81,9 +81,9 @@ async function handlePrint2() {
             </tr>
           </thead>
           <tbody class="text-sm">
-            <tr class="h-1">
+            <!-- <tr class="h-1">
               <td colSpan="9" />
-            </tr>
+            </tr> -->
             <BookingActivityHistoryTR
               v-for="ba of baHistories2"
               :key="ba.id"

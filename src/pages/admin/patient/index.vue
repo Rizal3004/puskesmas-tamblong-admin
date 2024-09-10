@@ -21,9 +21,9 @@ const { data: patients } = useGetAllPatients()
         </tr>
       </thead>
       <tbody class="text-sm">
-        <tr class="h-1">
+        <!-- <tr class="h-1">
           <td colSpan="9" />
-        </tr>
+        </tr> -->
 
         <PatientTR v-for="patient of patients" :key="patient.id" :patient />
       </tbody>

@@ -30,7 +30,7 @@ const searchText = ref('')
       </div>
     </div>
     <div class="rounded-md border px-2 pb-3">
-      <table class="w-full border-separate border-spacing-x-6">
+      <table class="w-full border-separate">
         <thead class="border-b">
           <tr class="h-12">
             <th class="text-start">ID</th>
@@ -45,9 +45,9 @@ const searchText = ref('')
           </tr>
         </thead>
         <tbody class="text-sm">
-          <tr class="h-1">
+          <!-- <tr class="h-1">
             <td colSpan="9" />
-          </tr>
+          </tr> -->
           <DokterTR v-for="doctor in doctors" :key="doctor.id" :doctor />
         </tbody>
       </table>
