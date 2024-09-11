@@ -5,7 +5,7 @@ import { useGetAllPatients } from '@/services/patientService'
 const { data: patients } = useGetAllPatients()
 </script>
 
-<template>
+<template>  
   <div class="rounded-md border px-2 pb-3">
     <table class="w-full border-separate border-spacing-x-6">
       <thead class="border-b">

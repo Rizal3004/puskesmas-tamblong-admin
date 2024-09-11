@@ -65,6 +65,7 @@ async function handlePrint2() {
             </div>
           </div>
         </div>
+        <h1 class="text-center text-2xl font-semibold">LAPORAN DATA CATATAN PENGOBATAN PASIEN</h1>
         <table class="w-full border-separate border-spacing-x-6">
           <thead class="border-b">
             <tr class="h-12">
@@ -97,7 +98,7 @@ async function handlePrint2() {
         <div class="text-center text-sm">
           <p>Kota Bandung, {{ (new Date().toLocaleDateString()).split('/').join('-') }}</p>
           <p>Penanggung Jawab</p>
-          <p class="mt-10">Dr. Neil Jackson</p>
+          <p class="mt-10">Kepala Bidang</p>
         </div>
       </div>
     </div>
