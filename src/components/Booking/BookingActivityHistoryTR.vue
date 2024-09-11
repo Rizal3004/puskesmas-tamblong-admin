@@ -10,6 +10,7 @@ import { useGetDoctorById } from '@/services/doctorService'
 const props = defineProps<{
   ba: BookingActivity
   showElementToPrint: boolean
+  searchText: string
 }>()
 
 const { data: patient } = useGetPatientById(props.ba.pasien_id)
@@ -17,7 +18,7 @@ const { data: doctor } = useGetDoctorById(props.ba.dokter_id)
 </script>
 
 <template>
-  <tr class="h-8">
+  <tr class="h-8" v-if="patient?.name.toLowerCase().includes(searchText.toLowerCase())">
     <td class="text-start">{{ patient?.name }}</td>
     <td class="text-start">{{ doctor?.name }}</td>
     <td class="text-start">{{ ba.patient_type === 'umum' ? 'Umum' : `BPJS (${ba.bpjs_number})` }}</td>

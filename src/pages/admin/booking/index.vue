@@ -1,15 +1,18 @@
 <script lang="ts" setup>
 import { Icon } from '@iconify/vue'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import BookingDoneConfirmationDialog from '@/components/Booking/DoneConfirmationDialog.vue'
 import BookingDeleteDialog from '@/components/Booking/DeleteDialog.vue'
 import ShowKeluhan from '@/components/Booking/ShowKeluhan.vue'
 import { useGetBookedBookings } from '@/services/bookingService'
 import BookingActivityTR from '@/components/Booking/BookingActivityTR.vue'
+import { useGetAllPolis } from '@/services/poliService'
 
 const { data: bookings } = useGetBookedBookings()
+const { data: allPoli } = useGetAllPolis()
 
 const searchText = ref('')
+const poliId = ref<number>()
 </script>
 
 <template>
@@ -25,10 +28,10 @@ const searchText = ref('')
             type="text"
           >
         </div>
-        <!-- <select v-model="poliId" class="rounded-md border px-4 py-1">
+        <select v-model="poliId" class="rounded-md border px-4 py-1">
           <option :value="undefined">Semua Poli</option>
-          <option v-for="poli in poliList" :key="poli.id" :value="poli.id">{{ poli.name }}</option>
-        </select> -->
+          <option v-for="poli in allPoli" :key="poli.id" :value="poli.id">{{ poli.name }}</option>
+        </select>
       </div>
     </div>
     <div class="rounded-md border px-2 pb-3">
@@ -53,7 +56,13 @@ const searchText = ref('')
           <!-- <tr class="h-1">
             <td colSpan="9" />
           </tr> -->
-          <BookingActivityTR v-for="ba of bookings" :key="ba.id" :ba />
+          <BookingActivityTR
+            v-for="ba of bookings"
+            :key="ba.id"
+            :poliId
+            :searchText
+            :ba
+          />
         </tbody>
       </table>
     </div>

@@ -31,12 +31,24 @@ async function handlePrint2() {
     showElementToPrint.value = false
   }, 10)
 }
+
+const searchText = ref('')
 </script>
 
 <template>
-  <div>
-    <div class="flex h-10 justify-end">
+  <div class="space-y-5">
+    <div class="flex h-10 justify-between">
+      <h1 class="text-2xl font-semibold">Data Riwayat Booking</h1>
+
       <div class="flex items-center gap-2">
+        <div class="">
+          <label for="search">Cari Pasien:</label>
+          <input
+            v-model="searchText"
+            class="mx-2 rounded-md border px-2 py-0.5"
+            type="text"
+          >
+        </div>
         <label :for="searchByDateId" class="text-sm">Tanggal:</label>
         <input
           :id="searchByDateId"
@@ -87,6 +99,7 @@ async function handlePrint2() {
             <BookingActivityHistoryTR
               v-for="ba of baHistories2"
               :key="ba.id"
+              :searchText
               :showElementToPrint
               :ba
             />

@@ -1,10 +1,16 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import DokterTR from '@/components/Dokter/DokterTR.vue'
 import { useGetAllDoctors } from '@/services/doctorService'
 
 const { data: doctors } = useGetAllDoctors()
 const searchText = ref('')
+
+const doctors2 = computed(() => {
+  if (!doctors.value) return []
+  if (!searchText.value) return doctors.value
+  return doctors.value.filter(doctor => doctor.name.toLowerCase().includes(searchText.value.toLowerCase()))
+})
 </script>
 
 <template>
@@ -48,7 +54,7 @@ const searchText = ref('')
           <!-- <tr class="h-1">
             <td colSpan="9" />
           </tr> -->
-          <DokterTR v-for="doctor in doctors" :key="doctor.id" :doctor />
+          <DokterTR v-for="doctor in doctors2" :key="doctor.id" :doctor />
         </tbody>
       </table>
     </div>

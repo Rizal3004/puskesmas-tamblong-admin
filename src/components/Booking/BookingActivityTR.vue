@@ -12,6 +12,8 @@ import { useCancelBooking, useGetQueueNumberByBookingId } from '@/services/booki
 
 const props = defineProps<{
   ba: BookingActivity
+  searchText: string
+  poliId: number | undefined
 }>()
 
 const { data: patient } = useGetPatientById(props.ba.pasien_id)
@@ -31,11 +33,10 @@ function handleCancelBooking(id: number) {
     },
   })
 }
-
 </script>
 
 <template>
-  <tr>
+  <tr v-if="patient?.name.toLowerCase().includes(searchText.toLowerCase()) && (poliId ? doctor?.poli_id === poliId : true)">
     <td class="text-start">
       <Icon
         v-if="ba.arrived_at"
