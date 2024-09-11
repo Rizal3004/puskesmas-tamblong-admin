@@ -17,8 +17,8 @@ const { data: doctor } = useGetDoctorById(props.ba.dokter_id)
 </script>
 
 <template>
-  <tr class="">
-    <td class="text-start">{{ patient?.name }} {{ ba.id }}</td>
+  <tr class="h-8">
+    <td class="text-start">{{ patient?.name }}</td>
     <td class="text-start">{{ doctor?.name }}</td>
     <td class="text-start">{{ ba.patient_type === 'umum' ? 'Umum' : `BPJS (${ba.bpjs_number})` }}</td>
     <td class="text-start">{{ patient?.phone }}</td>

@@ -54,31 +54,31 @@ function handlePrint2() {
     </div>
     <h1 class="text-center text-2xl font-semibold">LAPORAN DATA CATATAN PENGOBATAN PASIEN</h1>
     <div class="my-2 border-y py-2">
-      <table class="">
+      <table class="data-laporan">
         <tbody>
           <tr>
-            <td>Nama</td>
-            <td>: {{ patient?.name }}</td>
+            <td class="!text-start px-3">Nama</td>
+            <td class="!text-start px-3">: {{ patient?.name }}</td>
           </tr>
           <tr>
-            <td>NIK</td>
-            <td>: {{ patient?.nik }}</td>
+            <td class="!text-start px-3">NIK</td>
+            <td class="!text-start px-3">: {{ patient?.nik }}</td>
           </tr>
           <tr>
-            <td>Tanggal Lahir</td>
-            <td>: {{ patient?.birthdate ?? '-' }}</td>
+            <td class="!text-start px-3">Tanggal Lahir</td>
+            <td class="!text-start px-3">: {{ patient?.birthdate ?? '-' }}</td>
           </tr>
           <tr>
-            <td>Email</td>
-            <td>: {{ patient?.email }}</td>
+            <td class="!text-start px-3">Email</td>
+            <td class="!text-start px-3">: {{ patient?.email }}</td>
           </tr>
           <tr>
-            <td>Nomor Telepon</td>
-            <td>: {{ patient?.phone ?? '-' }}</td>
+            <td class="!text-start px-3">Nomor Telepon</td>
+            <td class="!text-start px-3">: {{ patient?.phone ?? '-' }}</td>
           </tr>
           <tr>
-            <td>Alamat</td>
-            <td>: {{ patient?.address ?? '-' }}</td>
+            <td class="!text-start px-3">Alamat</td>
+            <td class="!text-start px-3">: {{ patient?.address ?? '-' }}</td>
           </tr>
         </tbody>
       </table>
