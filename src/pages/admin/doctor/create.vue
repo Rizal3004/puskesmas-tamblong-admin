@@ -20,6 +20,7 @@ const dokterFormData = reactive<{
   name: string
   phone: string
   poli_id?: number
+  password: string
 }>({
   name: '',
   poli_id: undefined,
@@ -28,13 +29,23 @@ const dokterFormData = reactive<{
   email: '',
   phone: '',
   imageFile: undefined,
+  password: '',
 })
 
 function photoChange(e: Event) {
   dokterFormData.imageFile = (e.target as HTMLInputElement)?.files![0]
 }
 
+function validateData() {
+  if (dokterFormData.password.length < 8) {
+    alert('Password minimal 8 karakter')
+    return false
+  }
+  return true
+}
+
 function handleSubmit() {
+  if (!validateData()) return
   createDoctor(dokterFormData, {
     onSuccess: () => {
       alert('Berhasil menambahkan dokter')
@@ -66,6 +77,7 @@ function handleSubmit() {
         <label>Nama</label>
         <input
           v-model="dokterFormData.name"
+          required
           placeholder="Nama Dokter"
           type="text"
           class="rounded-md border px-3 py-1"
@@ -86,6 +98,7 @@ function handleSubmit() {
         <label>Jam mulai kerja</label>
         <input
           v-model="dokterFormData.jam_kerja_start"
+          required
           type="time"
           class="rounded-md border px-3 py-1"
         >
@@ -94,6 +107,7 @@ function handleSubmit() {
         <label>Jam berakhir kerja</label>
         <input
           v-model="dokterFormData.jam_kerja_end"
+          required
           type="time"
           class="rounded-md border px-3 py-1"
         >
@@ -102,6 +116,7 @@ function handleSubmit() {
         <label>Email</label>
         <input
           v-model="dokterFormData.email"
+          required
           type="email"
           class="rounded-md border px-3 py-1"
         >
@@ -110,14 +125,25 @@ function handleSubmit() {
         <label>No Telp</label>
         <input
           v-model="dokterFormData.phone"
+          required
           type="text"
           class="rounded-md border px-3 py-1"
           @keypress="validateInputNumber"
         >
       </div>
       <div class="flex flex-col">
+        <label>Password</label>
+        <input
+          v-model="dokterFormData.password"
+          required
+          type="text"
+          class="rounded-md border px-3 py-1"
+        >
+      </div>
+      <div class="flex flex-col">
         <label>Foto</label>
         <input
+          required
           type="file"
           multiple="false"
           accept="image/jpeg, image/jpg, image/png"

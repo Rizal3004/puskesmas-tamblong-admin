@@ -72,9 +72,6 @@ function resetFilter() {
           </tr>
         </thead>
         <tbody class="text-sm">
-          <!-- <tr class="h-1">
-            <td colSpan="9" />
-          </tr> -->
           <BookingActivityTR
             v-for="ba of bookings"
             :key="ba.id"

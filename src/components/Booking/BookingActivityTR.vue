@@ -65,6 +65,9 @@ function handleCancelBooking(id: number) {
     </td>
     <td class="text-start">
       <div class="flex items-center gap-2 pl-10">
+        <RouterLink :to="`/admin/booking/${ba.id}`">
+          <Icon icon="solar:pen-bold" class="text-amber-500" />
+        </RouterLink>
         <BookingDoneConfirmationDialog :bookingActivityId="ba.id" />
         <BookingDeleteDialog :bookingActivityId="ba.id" @delete="id => handleCancelBooking(id)" />
       </div>

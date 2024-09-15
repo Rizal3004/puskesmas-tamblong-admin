@@ -23,6 +23,7 @@ const dokterFormData = reactive<{
   phone: string
   photo: string
   imageFile: null | File
+  password: string
 }>({
   name: '',
   poli_id: '',
@@ -32,6 +33,7 @@ const dokterFormData = reactive<{
   phone: '',
   photo: '',
   imageFile: null,
+  password: '',
 })
 
 function photoChange(e: Event) {
@@ -47,6 +49,7 @@ onMounted(() => {
     dokterFormData.jam_kerja_end = doctor.value?.jam_kerja_end
     dokterFormData.email = doctor.value?.email
     dokterFormData.phone = doctor.value?.phone
+    dokterFormData.password = doctor.value?.password
   })
   if (doctor.value) {
     dokterFormData.name = doctor.value.name
@@ -54,7 +57,7 @@ onMounted(() => {
     dokterFormData.jam_kerja_start = doctor.value.jam_kerja_start
     dokterFormData.jam_kerja_end = doctor.value.jam_kerja_end
     dokterFormData.email = doctor.value.email
-    dokterFormData.phone = doctor.value.phone
+    dokterFormData.password = doctor.value.password
   }
 })
 
@@ -69,6 +72,7 @@ function handleSubmit() {
     jam_kerja_end: dokterFormData.jam_kerja_end,
     email: dokterFormData.email,
     phone: dokterFormData.phone,
+    password: dokterFormData.password
   }, {
     onSuccess: () => {
       alert('Berhasil mengubah dokter')

@@ -79,3 +79,19 @@ export function useGetQueueNumberByBookingId(bookingId: number) {
     },
   })
 }
+
+export function useUpdateBooking() {
+  const queryClient = useQueryClient()
+  return useMutation({
+    mutationFn: async (data: Partial<BookingActivity>) => {
+      return await apiFetch(`/booking-activities/${data.id}/update-time-and-doctor`, {
+        method: 'PATCH',
+        body: data,
+      })
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['bookings', { status: 'booked' }] })
+      queryClient.invalidateQueries({ queryKey: ['bookings', { status: 'done' }] })
+    },
+  })
+}

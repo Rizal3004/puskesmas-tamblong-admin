@@ -1,9 +1,11 @@
 <script lang="ts" setup>
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
+import { useToast } from 'vue-toast-notification'
 import { useLogin } from '@/services/authService'
 
 const router = useRouter()
+const toast = useToast()
 
 // inputan user
 const data = reactive({
@@ -23,6 +25,10 @@ function handleSubmit() {
       localStorage.setItem('token', token)
       router.push('/admin/booking')
     },
+    onError: (error) => {
+      console.log(error)
+      toast.error('Username atau password salah')
+    },
   })
 }
 </script>
@@ -37,6 +43,7 @@ function handleSubmit() {
           v-model="data.username"
           type="text"
           class="border px-2 py-1"
+          required
         >
       </div>
       <div class="flex flex-col">
@@ -46,6 +53,7 @@ function handleSubmit() {
           v-model="data.password"
           type="password"
           class="border px-2 py-1"
+          required
         >
       </div>
       <button class="w-full rounded-md bg-sky-500 py-1 text-white">Login</button>

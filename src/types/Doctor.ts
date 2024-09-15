@@ -8,4 +8,5 @@ export interface Doctor {
   foto: string | null;
   status: string; // Bisa dibuat sebagai union type jika memiliki nilai terbatas seperti "active" | "inactive"
   poli_id: number;
+  password: string
 }
