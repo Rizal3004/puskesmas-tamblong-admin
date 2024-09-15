@@ -24,14 +24,14 @@ defineProps<{
       <Icon icon="solar:document-bold-duotone" class="text-zinc-500" />
     </DialogTrigger>
     <DialogPortal>
-      <DialogOverlay class="bg-blackA9 data-[state=open]:animate-overlayShow fixed inset-0 z-30" />
+      <DialogOverlay class="data-[state=open]:animate-overlayShow fixed inset-0 z-30 bg-blackA9" />
       <DialogContent
         class="data-[state=open]:animate-contentShow fixed left-[50%] top-[50%] z-[100] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none"
       >
-        <DialogTitle class="text-mauve12 m-0 text-[17px] font-semibold">
+        <DialogTitle class="m-0 text-[17px] font-semibold text-mauve12">
           Keluhan Pasien
         </DialogTitle>
-        <DialogDescription class="text-mauve11 mb-5 mt-[10px] text-[15px] leading-normal">
+        <DialogDescription class="mb-5 mt-[10px] text-[15px] leading-normal text-mauve11">
           <p>{{ keluhan }}</p>
         </DialogDescription>
         <div class="mt-[25px] flex justify-end gap-4">

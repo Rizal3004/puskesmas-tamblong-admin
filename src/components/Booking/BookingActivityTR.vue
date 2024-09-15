@@ -14,6 +14,7 @@ const props = defineProps<{
   ba: BookingActivity
   searchText: string
   poliId: number | undefined
+  date: string | undefined
 }>()
 
 const { data: patient } = useGetPatientById(props.ba.pasien_id)
@@ -36,7 +37,7 @@ function handleCancelBooking(id: number) {
 </script>
 
 <template>
-  <tr v-if="patient?.name.toLowerCase().includes(searchText.toLowerCase()) && (poliId ? doctor?.poli_id === poliId : true)">
+  <tr v-if="patient?.name.toLowerCase().includes(searchText.toLowerCase()) && (poliId ? doctor?.poli_id === poliId : true) && (date ? ba.date === date : true)">
     <td class="text-start">
       <Icon
         v-if="ba.arrived_at"

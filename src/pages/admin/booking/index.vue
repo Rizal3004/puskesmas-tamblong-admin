@@ -12,26 +12,45 @@ const { data: bookings } = useGetBookedBookings()
 const { data: allPoli } = useGetAllPolis()
 
 const searchText = ref('')
+const dateFilter = ref<string>()
 const poliId = ref<number>()
+
+function resetFilter() {
+  searchText.value = ''
+  dateFilter.value = undefined
+  poliId.value = undefined
+}
 </script>
 
 <template>
   <div class="space-y-5">
     <div class="flex justify-between">
       <h1 class="text-2xl font-semibold">Data Booking</h1>
-      <div class="flex items-center gap-8">
+      <div class="flex items-center gap-6">
         <div class="">
-          <label for="search">Cari Pasien:</label>
+          <label for="search">Cari Pasien: </label>
           <input
             v-model="searchText"
-            class="mx-2 rounded-md border px-2 py-0.5"
+            class="rounded-md border px-2 py-0.5"
             type="text"
+          >
+        </div>
+        <div class="">
+          <label for="search">Tanggal:</label>
+          {{ dateFilter }}
+          <input
+            v-model="dateFilter"
+            class="rounded-md border px-2 py-0.5"
+            type="date"
           >
         </div>
         <select v-model="poliId" class="rounded-md border px-4 py-1">
           <option :value="undefined">Semua Poli</option>
           <option v-for="poli in allPoli" :key="poli.id" :value="poli.id">{{ poli.name }}</option>
         </select>
+        <button class="bg-sky-100 px-4 rounded-md text-zinc-800 h-full" @click="resetFilter">
+          Reset
+        </button>
       </div>
     </div>
     <div class="rounded-md border px-2 pb-3">
@@ -62,6 +81,7 @@ const poliId = ref<number>()
             :poliId
             :searchText
             :ba
+            :date="dateFilter"
           />
         </tbody>
       </table>
