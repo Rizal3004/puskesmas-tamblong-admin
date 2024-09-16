@@ -154,6 +154,14 @@ function handleSubmit() {
         >
       </div>
       <div class="flex flex-col">
+        <label>Password</label>
+        <input
+          v-model="dokterFormData.password"
+          type="text"
+          class="rounded-md border px-3 py-1"
+        >
+      </div>
+      <div class="flex flex-col">
         <label>Foto</label>
         <input
           type="file"
