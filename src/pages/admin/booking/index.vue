@@ -37,7 +37,6 @@ function resetFilter() {
         </div>
         <div class="">
           <label for="search">Tanggal:</label>
-          {{ dateFilter }}
           <input
             v-model="dateFilter"
             class="rounded-md border px-2 py-0.5"
