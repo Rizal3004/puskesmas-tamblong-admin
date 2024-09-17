@@ -71,7 +71,7 @@ function handleUpdateBooking() {
         <SelectTime v-model:startsAt="formBooking.starts_at" v-model:endsAt="formBooking.ends_at" />
       </div>
       <div class="flex items-end">
-        <button type="submit" class="h-fit w-full rounded-md bg-zinc-700 py-1.5 text-white">
+        <button type="submit" class="h-fit w-full rounded-md bg-zinc-500 py-1.5 text-white hover:bg-sky-600">
           Simpan
         </button>
       </div>

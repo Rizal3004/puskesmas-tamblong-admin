@@ -47,8 +47,8 @@ function resetFilter() {
           <option :value="undefined">Semua Poli</option>
           <option v-for="poli in allPoli" :key="poli.id" :value="poli.id">{{ poli.name }}</option>
         </select>
-        <button class="bg-sky-100 px-4 rounded-md text-zinc-800 h-full" @click="resetFilter">
-          Reset
+        <button class="bg-amber-300 px-4 rounded-md text-zinc-800 h-full" @click="resetFilter">
+          Reset Filter
         </button>
       </div>
     </div>

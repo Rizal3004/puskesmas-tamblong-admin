@@ -56,7 +56,7 @@ function handleSubmit() {
           required
         >
       </div>
-      <button class="w-full rounded-md bg-sky-500 py-1 text-white">Login</button>
+      <button class="w-full rounded-md bg-slate-500 py-1 text-white hover:bg-sky-600">Login</button>
     </form>
   </div>
 </template>

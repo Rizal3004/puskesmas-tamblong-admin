@@ -152,7 +152,7 @@ function handleSubmit() {
         >
       </div>
       <div class="flex items-end">
-        <button type="submit" class="h-10 w-full rounded-md bg-blue-400 text-white">Submit</button>
+        <button type="submit" class="h-10 w-full rounded-md bg-slate-500 text-white hover:bg-sky-600">Konfirmasi</button>
       </div>
     </form>
   </div>

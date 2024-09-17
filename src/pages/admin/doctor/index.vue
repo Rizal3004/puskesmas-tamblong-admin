@@ -31,7 +31,7 @@ const doctors2 = computed(() => {
           <option v-for="poli in poliList" :key="poli.id" :value="poli.id">{{ poli.name }}</option>
         </select> -->
         <div class="">
-          <RouterLink to="/admin/doctor/create" class="rounded-md bg-sky-500 px-6 py-1 text-white">Tambah Dokter</RouterLink>
+          <RouterLink to="/admin/doctor/create" class="rounded-md bg-slate-500 px-6 py-1 text-white hover:bg-sky-600">Tambah Dokter</RouterLink>
         </div>
       </div>
     </div>

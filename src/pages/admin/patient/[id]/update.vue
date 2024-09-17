@@ -77,7 +77,7 @@ onMounted(() => {
         >
       </div>
       <div class="flex items-end">
-        <button type="submit" class="h-10 w-full rounded-md bg-blue-400 text-white"> Edit Pasien </button>
+        <button type="submit" class="h-10 w-full rounded-md bg-slate-500 text-white hover:bg-sky-600"> Edit Pasien </button>
       </div>
     </form>
   </div>
