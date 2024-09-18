@@ -57,8 +57,8 @@ const searchText = ref('')
           :name="searchByDateId"
           class="rounded-md border px-2"
         >
-        <button class="rounded-md bg-amber-300 px-2" @click="searchDate = undefined">Reset Filter</button>
-        <button class="rounded-md bg-sky-300 px-2" @click="handlePrint2">Print</button>
+        <button class="rounded-md bg-slate-300 px-2 hover:bg-amber-300" @click="searchDate = undefined">Reset Filter</button>
+        <button class=" rounded-md text-white px-2 bg-sky-500" @click="handlePrint2">Print</button>
       </div>
     </div>
     <div ref="elementToPrintRef" class="">

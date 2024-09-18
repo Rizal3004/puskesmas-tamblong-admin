@@ -36,7 +36,7 @@ const { data: doctor } = useGetDoctorById(props.ba.dokter_id)
     <td class="text-start">{{ ba.resep?.split('::')[0] }}</td>
     <td class="text-start">{{ ba.resep?.split('::')[1] }}</td>
     <td v-if="!showElementToPrint">
-      <RouterLink class="rounded-md bg-amber-300 px-4 py-1" :to="`/admin/history/${ba.id}`">
+      <RouterLink class="rounded-md bg-slate-300 px-4 py-1 hover:bg-amber-300" :to="`/admin/history/${ba.id}`">
         Lihat
       </RouterLink>
     </td>

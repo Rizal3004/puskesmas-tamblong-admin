@@ -37,7 +37,7 @@ function handleClick() {
       >
         <DropdownMenuItem
           value="New Tab"
-          class="group relative flex h-[25px] select-none items-center rounded-[3px] px-[5px] pl-[25px] text-[13px] leading-none text-slate-600 outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-slate-600 data-[disabled]:text-mauve8 data-[highlighted]:text-green1"
+          class="group relative flex h-[25px] select-none items-center rounded-[3px] px-[5px] pl-[25px] text-[13px] leading-none text-slate-600 outline-none data-[disabled]:pointer-events-none data-[highlighted]:bg-red-500 data-[disabled]:text-mauve8 data-[highlighted]:text-white"
           @click="handleClick"
         >
           Logout
